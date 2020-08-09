@@ -1,7 +1,8 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Nav from './components/nav/nav';
+// import Nav from './components/nav/nav';
+import Subject from './components/subject/subject';
 
 // function App() {
 //   return (
@@ -25,7 +26,7 @@ import Nav from './components/nav/nav';
 // }
 const App = () => (
   <div className="App">
-    <Nav></Nav>
+    <Subject></Subject>
   </div>
 );
 

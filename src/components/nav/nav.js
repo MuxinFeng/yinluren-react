@@ -21,7 +21,7 @@ class Nav extends React.Component {
             <Layout>
                 <Header style={{
                     position: 'fixed',
-                    // zIndex: 1,
+                    zIndex: 1,
                     top: 0,
                     width: '100%',
                     // minWidth: '1200px',
@@ -36,10 +36,10 @@ class Nav extends React.Component {
                         </Col>
                         <Col style={{ width: '50%', float: 'left', display: 'inline-block' }}>
                             <Menu mode="horizontal" onClick={this.handleClick} selectedKeys={[current]}>
-                                <Menu.Item style={{ display: 'inline-block', float: "left", padding: "0px 15px" }} key="1" icon={<BankOutlined style={{ paddingRight: "4px", }} />}>
+                                <Menu.Item style={{ display: 'inline-block', float: "left", padding: "0px 10px" }} key="1" icon={<BankOutlined style={{ paddingRight: "4px", }} />}>
                                     政治
                                 </Menu.Item>
-                                <Menu.Item style={{ display: 'inline-block', float: "left", padding: "0px 15px" }} key="2" icon={<KeyOutlined style={{ paddingRight: "4px", }} />}>
+                                <Menu.Item style={{ display: 'inline-block', float: "left", padding: "0px 10px" }} key="2" icon={<KeyOutlined style={{ paddingRight: "4px", }} />}>
                                     历史
                                 </Menu.Item>
                                 <Menu.Item style={{ display: 'inline-block', float: "left", padding: "0px 15px" }} key="3" icon={<DollarOutlined style={{ paddingRight: "4px", }} />}>
@@ -54,7 +54,7 @@ class Nav extends React.Component {
                                 <Menu.Item style={{ display: 'inline-block', float: "left", padding: "0px 15px" }} key="6" icon={<MacCommandOutlined style={{ paddingRight: "4px", }} />}>
                                     杂家
                                 </Menu.Item>
-                                <Menu.Item style={{ display: 'inline-block', float: "left", padding: "0px 0px 0px 15px" }} key="7" icon={<MessageOutlined style={{ paddingRight: "4px", }} />}>
+                                <Menu.Item style={{ display: 'inline-block', float: "left", padding: "0px 0px 0px 5px" }} key="7" icon={<MessageOutlined style={{ paddingRight: "4px", }} />}>
                                     跬步者言
                                 </Menu.Item>
                             </Menu>
