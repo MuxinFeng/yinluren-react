@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Divider, Avatar, Card, Col, Row, } from 'antd';
 import 'antd/dist/antd.css';
-import Nav from '../nav/nav';
+import Nav from '../Nav/index';
 import GitHub from '../../assets/githubUrl.png';
 import Jiaoliuqun from '../../assets/jiaoliuqun.png';
 

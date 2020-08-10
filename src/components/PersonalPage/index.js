@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Card, Col, Row, Divider, } from 'antd';
 import 'antd/dist/antd.css';
-import Nav from '../nav/nav';
+import Nav from '../Nav/index';
 import {  SettingOutlined } from '@ant-design/icons';
 // import GitHub from '../../assets/githubUrl.png';
 // import Jiaoliuqun from '../../assets/jiaoliuqun.png';
@@ -10,7 +10,7 @@ const { Sider, Content, Footer } = Layout;
 const { Meta } = Card;
 
 
-class Personalpage extends React.Component {
+class PersonalPage extends React.Component {
     render() {
         return (
             <div>
@@ -76,4 +76,4 @@ class Personalpage extends React.Component {
         )
     }
 }
-export default Personalpage;
+export default PersonalPage;
