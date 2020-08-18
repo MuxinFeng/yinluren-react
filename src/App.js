@@ -1,8 +1,8 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Nav from './components/Nav/index';
-import Subject from './components/Subject/index';
+// import Nav from './components/Nav/index';
+// import Subject from './components/Subject/index';
 // import Subject from './components/subject/subject';
 import PersonalPage from './components/PersonalPage/index';
 
