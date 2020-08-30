@@ -2,7 +2,7 @@ import "./index.css";
 import React from "react";
 import { Layout, Card, Col, Row, Divider, Anchor } from "antd";
 import "antd/dist/antd.css";
-import Nav from "../Nav/index";
+// import Nav from "../Nav/index";
 import { SettingOutlined } from "@ant-design/icons";
 import GitHub from "../../assets/githubUrl.png";
 // import Jiaoliuqun from '../../assets/jiaoliuqun.png';
@@ -15,7 +15,7 @@ class PersonalPage extends React.Component {
   render() {
     return (
       <div>
-        <Nav></Nav>
+        {/* <Nav></Nav> */}
         <Layout>
           <Content>
             <Layout>

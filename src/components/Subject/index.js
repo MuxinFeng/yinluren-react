@@ -18,7 +18,7 @@ class Subject extends React.Component {
                     <Content >
                         <Layout>
                             <Content style={{ minHeight: document.documentElement.clientHeight - 64 - 70, marginTop: 64, backgroundColor: "#fff" }}>
-                                <div style={{ paddingTop: 30, paddingRight: 100, paddingLeft: 450 }}>
+                                <div style={{ paddingTop: 30, paddingRight: 100, paddingLeft: 400 }}>
                                     <Row gutter={16} style={{ marginBottom: 15 }}>
                                         <Col span={6}>
                                             <Card style={{ width: 150, marginLeft: "auto", marginRight: "auto" }} hoverable cover={<img alt="图片未显示" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>

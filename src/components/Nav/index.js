@@ -8,45 +8,70 @@ import { Switch,Route, BrowserRouter} from 'react-router-dom';
 // import RouterConfig from '../../router/config/index';
 import { createBrowserHistory } from 'history';
 import Subject from '../Subject/index.js';
+import PersonalPage from '../PersonalPage/index'
 
 const { Header,Content } = Layout;
 const { Search } = Input;
 const history = createBrowserHistory({
-    // forceRefresh: true,
+    forceRefresh: true,
 });
 
-// // 获取当前 location
-//     const location = history.location;
 
-// // 监听当前 location改变
-//     const unlisten = history.listen((location, action) => {
-//   // location is an object like window.location
-//     console.log(action, location.pathname, location.state);
-// });
 function Qibingying(){
     return (
         <Layout>
             <Content style={{ minHeight: document.documentElement.clientHeight - 64 - 70, marginTop: 64, backgroundColor: "#fff" }}>
-                <h1>history骑兵连   </h1>
+                <h1>history骑兵连 </h1>
             </Content>
         </Layout>
     )
 };
 
 class Nav extends React.Component {
-    
-    state = {
-        current: 'political',
+    constructor(props){
+        super(props);
+        // if( typeof this.props.location.currentObject == "undefined"){
+        //     this.props.current = 'political'
+        // }else{
+        //     this.props.current = this.props.location.currentObject
+        // }
+        console.log(this.props)
+        this.state = {
+            current: '',
+        };
     };
+    
+
+    // componentDidMount = (history) => {
+    //     console.log(history.location)
+    //     // var currentObject = history.location.state.currentObject;
+    //     // if(typeof currentObject == "undefined"){
+    //     //     this.setState({
+    //     //         current:currentObject,
+    //     //     })
+    //     // }
+    // };
 
     handleClick = e => {
-        console.log('click ', e);
-        this.setState({ current: e.key });
+        console.log('click ', e);       
+        this.setState({ 
+            current: e.key 
+        });
         const path = '/'+e.key;
-        console.log(path);
-        history.push(path);
+        history.push({
+            pathname:path,
+            state:{
+                currentObject:e.key,
+            }
+        });
+        // window.location.reload();
+        const location = history.location;
+        console.log(location.state);
+    //     const unlisten = history.listen((location, action) => {
+    //         console.log(action, location.pathname, location.state);
+    // });
+    //     unlisten();
     };
-
     
 
     render() {
@@ -115,6 +140,7 @@ class Nav extends React.Component {
                             <Route path="/" exact component={Subject}></Route>                           
                             <Route path="/political" exact component={Subject}></Route>
                             <Route path="/history" exact component={Qibingying}></Route>
+                            <Route path="/communication" exact component={PersonalPage}></Route>
                         </Switch>
                     </BrowserRouter>
                 </Content>               
