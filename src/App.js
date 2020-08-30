@@ -1,9 +1,8 @@
 import React from 'react';
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 import Nav from './components/Nav/index';
 // import Subject from './components/Subject/index';
-// import Subject from './components/subject/subject';
 // import PersonalPage from './components/PersonalPage/index';
 
 // function App() {
@@ -28,9 +27,9 @@ import Nav from './components/Nav/index';
 // }
 const App = () => (
   <div className="App">
-    <Nav></Nav>
-    {/* <PersonalPage></PersonalPage> */}
     {/* <Nav></Nav> */}
+    {/* <PersonalPage></PersonalPage> */}
+    <Nav></Nav>
     {/* <Subject></Subject> */}
   </div>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Divider, Avatar, Card, Col, Row, } from 'antd';
 import 'antd/dist/antd.css';
-import Nav from '../Nav/index';
+// import Nav from '../Nav/index';
 import GitHub from '../../assets/githubUrl.png';
 import Jiaoliuqun from '../../assets/jiaoliuqun.png';
 
@@ -13,7 +13,7 @@ class Subject extends React.Component {
     render() {
         return (
             <div>
-                <Nav></Nav>
+                {/* <Nav></Nav> */}
                 <Layout >
                     <Content >
                         <Layout>
@@ -88,12 +88,12 @@ class Subject extends React.Component {
 
                                 </div>
                             </Content>
-                            <Sider width={400} style={{ right: 20, minHeight: document.documentElement.clientHeight - 64 - 70, marginTop: 64, backgroundColor: "#fff" }}>
+                            <Sider width={400} style={{minHeight: document.documentElement.clientHeight - 64 - 70, marginTop: 64, backgroundColor: "#fff" }}>
                                 <div>
                                     <div>
                                         <Divider>项目地址</Divider>
                                         <a href="https://github.com/MuxinFeng/yinluren-react">
-                                            <Avatar size={120} src={GitHub} alt="Github仓库地址" />
+                                            <Avatar style={{marginLeft: 140, }} size={120} src={GitHub} alt="Github仓库地址" />
                                         </a>
                                     </div>
                                 </div>
@@ -126,7 +126,7 @@ class Subject extends React.Component {
                                 </div>
                                 <div>
                                     <Divider>交流群</Divider>
-                                    <img src={Jiaoliuqun} alt="交流群" style={{ width: 280, height: 210 }} />
+                                    <img src={Jiaoliuqun} alt="交流群" style={{ marginLeft:60,width: 280, height: 210 }} />
                                     <Divider></Divider>
                                 </div>
                             </Sider>

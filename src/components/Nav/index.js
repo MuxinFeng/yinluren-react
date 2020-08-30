@@ -9,10 +9,10 @@ import { Switch,Route, BrowserRouter} from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import Subject from '../Subject/index.js';
 
-const { Header } = Layout;
+const { Header,Content } = Layout;
 const { Search } = Input;
 const history = createBrowserHistory({
-    forceRefresh: true,
+    // forceRefresh: true,
 });
 
 // // 获取当前 location
@@ -24,13 +24,19 @@ const history = createBrowserHistory({
 //     console.log(action, location.pathname, location.state);
 // });
 function Qibingying(){
-    return <h1>騎兵連</h1>
+    return (
+        <Layout>
+            <Content style={{ minHeight: document.documentElement.clientHeight - 64 - 70, marginTop: 64, backgroundColor: "#fff" }}>
+                <h1>history骑兵连   </h1>
+            </Content>
+        </Layout>
+    )
 };
 
 class Nav extends React.Component {
     
     state = {
-        current: '',
+        current: 'political',
     };
 
     handleClick = e => {
@@ -94,13 +100,7 @@ class Nav extends React.Component {
                                     跬步者言
                                 </Menu.Item>
                             </Menu>
-                            <BrowserRouter>
-                                    <Switch>
-                                        <Route path="/" exact component={Qibingying}></Route>
-                                        <Route path="/history" exact component={Qibingying}></Route>
-                                        <Route path="/political" exact component={Subject}></Route>
-                                    </Switch>
-                            </BrowserRouter>
+                            
                         </Col>
                         <Col style={{ width: '25%', float: 'left', display: 'inline-block' }}>
                             <div>
@@ -109,7 +109,15 @@ class Nav extends React.Component {
                         </Col>
                     </Row>
                 </Header>
-                                
+                <Content>
+                    <BrowserRouter>
+                        <Switch>
+                            <Route path="/" exact component={Subject}></Route>                           
+                            <Route path="/political" exact component={Subject}></Route>
+                            <Route path="/history" exact component={Qibingying}></Route>
+                        </Switch>
+                    </BrowserRouter>
+                </Content>               
                                 
             </Layout>
         );
