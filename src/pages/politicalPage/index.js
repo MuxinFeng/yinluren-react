@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Subject from '../../components/Subject/index'
+// import Subject from '../../components/Subject/index'
 
 class PoliticalPage extends Component{
     render(){
         return(
             <div>
                 
-                <Subject></Subject>
+                <p>1212</p>
             </div>
         )
     }

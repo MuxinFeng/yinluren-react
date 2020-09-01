@@ -13,7 +13,7 @@ import PersonalPage from '../PersonalPage/index'
 const { Header,Content } = Layout;
 const { Search } = Input;
 const history = createBrowserHistory({
-    forceRefresh: true,
+    // forceRefresh: true,
 });
 
 
@@ -58,6 +58,9 @@ class Nav extends React.Component {
             current: e.key 
         });
         const path = '/'+e.key;
+        const unlisten = history.listen((location, action) => {
+            console.log(action, location.pathname, location.state);
+        });
         history.push({
             pathname:path,
             state:{
@@ -67,10 +70,8 @@ class Nav extends React.Component {
         // window.location.reload();
         const location = history.location;
         console.log(location.state);
-    //     const unlisten = history.listen((location, action) => {
-    //         console.log(action, location.pathname, location.state);
-    // });
-    //     unlisten();
+        
+        unlisten();
     };
     
 
