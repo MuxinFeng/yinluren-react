@@ -8,12 +8,14 @@ import { Switch,Route, BrowserRouter} from 'react-router-dom';
 // import RouterConfig from '../../router/config/index';
 import { createBrowserHistory } from 'history';
 import Subject from '../Subject/index.js';
-import PersonalPage from '../PersonalPage/index'
+import PersonalPage from '../PersonalPage/index';
+import {SWITCH_MENUS} from '../../store/actionTypes';//引入actiontypes
+import store from '../../store/index';
 
 const { Header,Content } = Layout;
 const { Search } = Input;
 const history = createBrowserHistory({
-    // forceRefresh: true,
+    forceRefresh: true,
 });
 
 
@@ -35,12 +37,27 @@ class Nav extends React.Component {
         // }else{
         //     this.props.current = this.props.location.currentObject
         // }
+        this.state = store.getState();
+        // this.storeChange= this.storeChange.bind(this)
+        store.subscribe(() =>{
+            const state = store.getState();
+            this.saveState(state)
+        })
         console.log(this.props)
-        this.state = {
-            current: '',
-        };
     };
+
+    saveState (state) {
+        try {
+          const serializedState = JSON.stringify(state);
+          localStorage.setItem('state', serializedState);
+        } catch (err) {
+          console.log('state本地存储失败')
+        }
+      }
     
+    // storeChange(){
+    //     this.setState(store.getState())
+    // }
 
     // componentDidMount = (history) => {
     //     console.log(history.location)
@@ -53,10 +70,15 @@ class Nav extends React.Component {
     // };
 
     handleClick = e => {
-        console.log('click ', e);       
-        this.setState({ 
-            current: e.key 
-        });
+        console.log('click ', e);
+        const action = {
+            type:SWITCH_MENUS,
+            value:e.key
+        }
+        store.dispatch(action)       
+        // this.setState({ 
+        //     current: e.key 
+        // });
         const path = '/'+e.key;
         const unlisten = history.listen((location, action) => {
             console.log(action, location.pathname, location.state);
