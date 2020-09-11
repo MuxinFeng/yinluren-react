@@ -1,1 +1,1 @@
-export const SWITCH_MENUS = 'switchMenus'
+export const SWITCH_MENUS = 'switchMenus';
