@@ -96,7 +96,7 @@ class Nav extends React.Component {
 						<Col
 							style={{
 								display: 'inline-block',
-								width: '25%',
+								width: '20%',
 								float: 'left',
 								marginBottom: '10px',
 								paddingRight: '80px',
@@ -107,7 +107,7 @@ class Nav extends React.Component {
 							跬步不休 累土不辍
 						</Col>
 						<Col
-							style={{ width: '50%', float: 'left', display: 'inline-block' }}
+							style={{ width: '55%', float: 'left', display: 'inline-block' }}
 						>
 							<Menu
 								mode="horizontal"
