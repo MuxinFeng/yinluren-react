@@ -6,8 +6,29 @@ import Jiaoliuqun from '../../assets/jiaoliuqun.png';
 
 const { Sider, Content, Footer } = Layout;
 const { Meta } = Card;
+const cardList = [
+	{
+		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+		title: '标题1',
+	},
+	{
+		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+		title: '标题2',
+	},
+	{
+		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+		title: '标题3',
+	},
+	{
+		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+		title: '标题4',
+	},
+];
 
 class Subject extends React.Component {
+	clickk = () => {
+		console.log('1');
+	};
 	render() {
 		return (
 			<div>
@@ -29,78 +50,44 @@ class Subject extends React.Component {
 									}}
 								>
 									<Row gutter={16} style={{ marginBottom: 15 }}>
-										<Col span={6}>
-											<Card
-												style={{
-													width: 150,
-													marginLeft: 'auto',
-													marginRight: 'auto',
-												}}
-												hoverable
-												cover={
-													<img
-														alt="图片未显示"
-														src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-													/>
-												}
-											>
-												<Meta title="Top1" />
-											</Card>
-										</Col>
-										<Col span={6}>
-											<Card
-												style={{
-													width: 150,
-													marginLeft: 'auto',
-													marginRight: 'auto',
-												}}
-												hoverable
-												cover={
-													<img
-														alt="图片未显示"
-														src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-													/>
-												}
-											>
-												<Meta title="Top1" />
-											</Card>
-										</Col>
-										<Col span={6}>
-											<Card
-												style={{
-													width: 150,
-													marginLeft: 'auto',
-													marginRight: 'auto',
-												}}
-												hoverable
-												cover={
-													<img
-														alt="图片未显示"
-														src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-													/>
-												}
-											>
-												<Meta title="Top1" />
-											</Card>
-										</Col>
-										<Col span={6}>
-											<Card
-												style={{
-													width: 150,
-													marginLeft: 'auto',
-													marginRight: 'auto',
-												}}
-												hoverable
-												cover={
-													<img
-														alt="图片未显示"
-														src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-													/>
-												}
-											>
-												<Meta title="Top1" />
-											</Card>
-										</Col>
+										{cardList.map((item, index) => {
+											return (
+												<Col span={6}>
+													<Card
+														onClick={this.clickk()}
+														style={{
+															width: 150,
+															marginLeft: 'auto',
+															marginRight: 'auto',
+														}}
+														hoverable
+														cover={<img alt="图片未显示" src={item.src} />}
+													>
+														<Meta title={item.title} />
+													</Card>
+												</Col>
+											);
+										})}
+										{/* <Col span={6}>
+                                            <Card style={{ width: 150, marginLeft: "auto", marginRight: "auto" }} hoverable cover={<img alt="图片未显示" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                                                <Meta title="Top1" />
+                                            </Card>
+                                        </Col>
+                                        <Col span={6}>
+                                            <Card style={{ width: 150, marginLeft: "auto", marginRight: "auto" }} hoverable cover={<img alt="图片未显示" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                                                <Meta title="Top1" />
+                                            </Card>
+                                        </Col>
+                                        <Col span={6}>
+                                            <Card style={{ width: 150, marginLeft: "auto", marginRight: "auto" }} hoverable cover={<img alt="图片未显示" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                                                <Meta title="Top1" />
+                                            </Card>
+                                        </Col>
+                                        <Col span={6}>
+                                            <Card style={{ width: 150, marginLeft: "auto", marginRight: "auto" }} hoverable cover={<img alt="图片未显示" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                                                <Meta title="Top1" />
+                                            </Card>
+                                        </Col> */}
 									</Row>
 								</div>
 							</Content>
