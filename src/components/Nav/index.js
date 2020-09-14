@@ -16,6 +16,7 @@ import Subject from '../Subject/index.js';
 import PersonalPage from '../PersonalPage/index';
 import { SWITCH_MENUS } from '../../store/actionTypes'; //引入actiontypes
 import store from '../../store/index';
+import Articles from '../Articles/index.js';
 
 const { Header, Content } = Layout;
 const { Search } = Input;
@@ -216,6 +217,7 @@ class Nav extends React.Component {
 							<Route path="/" exact component={Subject}></Route>
 							<Route path="/political" exact component={Subject}></Route>
 							<Route path="/history" exact component={Qibingying}></Route>
+							<Route path="/economic" exact component={Articles}></Route>
 							<Route
 								path="/communication"
 								exact
