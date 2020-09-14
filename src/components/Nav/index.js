@@ -107,7 +107,7 @@ class Nav extends React.Component {
 							跬步不休 累土不辍
 						</Col>
 						<Col
-							style={{ width: '55%', float: 'left', display: 'inline-block' }}
+							style={{ width: '60%', float: 'left', display: 'inline-block' }}
 						>
 							<Menu
 								mode="horizontal"
@@ -194,7 +194,7 @@ class Nav extends React.Component {
 							</Menu>
 						</Col>
 						<Col
-							style={{ width: '25%', float: 'left', display: 'inline-block' }}
+							style={{ width: '20%', float: 'left', display: 'inline-block' }}
 						>
 							<div>
 								<Search
