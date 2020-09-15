@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { Layout, Divider } from 'antd';
-import {
-	// MacCommandOutlined,
-	BankOutlined,
-	DatabaseFilled,
-} from '@ant-design/icons';
+import { EyeOutlined, MessageOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import GitHub from '../../assets/githubUrl.png';
+import './index.css';
 // import Jiaoliuqun from '../../assets/jiaoliuqun.png';
 
 const { Content } = Layout;
@@ -51,28 +48,34 @@ class Articles extends Component {
 								</div>
 							</Footer>
 						</Layout> */}
-						<li>
+						<div>
 							<a href="http://baidu.com">
-								<img src={{ GitHub }} alt="文章封面"></img>
+								<img
+									className="articlePicture"
+									src={GitHub}
+									alt="文章封面"
+								></img>
 							</a>
 							<div class="content">
-								<Link to="http://baidu.com">第一篇文章</Link>
+								<Link to="http://baidu.com">
+									<h2>第一篇文章</h2>
+								</Link>
 								<p>这是第一篇文章的简介</p>
 							</div>
 							<div class="meta">
 								{/* <Icon type="heart">50</Icon> */}
 								<span>
-									<DatabaseFilled theme="outlined" />
+									<EyeOutlined theme="outlined" />
 									50
 								</span>
-
-								<BankOutlined theme="outlined">20</BankOutlined>
-								<DatabaseFilled theme="outlined">
-									2020.9.14 21:24
-								</DatabaseFilled>
+								<span>
+									<MessageOutlined theme="outlined" />
+									16
+								</span>
+								<span>2020.9.14 21:24</span>
 							</div>
 							<Divider />
-						</li>
+						</div>
 					</Content>
 				</Layout>
 			</div>
