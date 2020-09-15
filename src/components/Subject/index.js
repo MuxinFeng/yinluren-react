@@ -3,36 +3,63 @@ import { Layout, Divider, Avatar, Card, Col, Row } from 'antd';
 import 'antd/dist/antd.css';
 import GitHub from '../../assets/githubUrl.png';
 import Jiaoliuqun from '../../assets/jiaoliuqun.png';
+import axios from 'axios';
 
 const { Sider, Content, Footer } = Layout;
 const { Meta } = Card;
-const cardList = [
-	{
-		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-		title: '标题1',
-	},
-	{
-		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-		title: '标题2',
-	},
-	{
-		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-		title: '标题3',
-	},
-	{
-		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-		title: '标题4',
-	},
-	{
-		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-		title: '标题4',
-	},
-];
+// const cardList = [
+// 	{
+// 		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+// 		title: '标题1',
+// 	},
+// 	{
+// 		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+// 		title: '标题2',
+// 	},
+// 	{
+// 		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+// 		title: '标题3',
+// 	},
+// 	{
+// 		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+// 		title: '标题4',
+// 	},
+// 	{
+// 		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+// 		title: '标题4',
+// 	},
+// ];
 
 class Subject extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			cardList: [],
+		};
+	}
 	clickCard = () => {
 		console.log('1');
 	};
+
+	componentDidMount() {
+		axios
+			.get(
+				'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/subject/political'
+			)
+			.then((res) => {
+				this.setState({
+					cardList: res.data.data.cardList,
+				});
+				console.log(res.data);
+				console.log(res.data.data);
+				console.log(res.data.data.cardList);
+				console.log('12' + this.state);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
+
 	render() {
 		return (
 			<div>
@@ -55,7 +82,7 @@ class Subject extends React.Component {
 									}}
 								>
 									<Row gutter={16}>
-										{cardList.map((item, index) => {
+										{this.state.cardList.map((item, index) => {
 											return (
 												<Col style={{ marginBottom: 15 }} span={6}>
 													<Card

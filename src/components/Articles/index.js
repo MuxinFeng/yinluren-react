@@ -58,21 +58,21 @@ class Articles extends Component {
 							</a>
 							<div class="content">
 								<Link to="http://baidu.com">
-									<h2>第一篇文章</h2>
+									<h3>第一篇文章</h3>
 								</Link>
 								<p>这是第一篇文章的简介</p>
 							</div>
 							<div class="meta">
 								{/* <Icon type="heart">50</Icon> */}
 								<span>
-									<EyeOutlined theme="outlined" />
-									50
+									<EyeOutlined className="spanIcon" theme="outlined" />
+									<span>50</span>
 								</span>
 								<span>
-									<MessageOutlined theme="outlined" />
-									16
+									<MessageOutlined className="spanIcon" theme="outlined" />
+									<span>16</span>
 								</span>
-								<span>2020.9.14 21:24</span>
+								<span className="spanTime">2020.9.14</span>
 							</div>
 							<Divider />
 						</div>

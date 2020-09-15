@@ -24,22 +24,6 @@ const history = createBrowserHistory({
 	forceRefresh: true,
 });
 
-function Qibingying() {
-	return (
-		<Layout>
-			<Content
-				style={{
-					minHeight: document.documentElement.clientHeight - 64 - 70,
-					marginTop: 64,
-					backgroundColor: '#fff',
-				}}
-			>
-				<h1>history骑兵连 </h1>
-			</Content>
-		</Layout>
-	);
-}
-
 class Nav extends React.Component {
 	constructor(props) {
 		super(props);
@@ -216,13 +200,9 @@ class Nav extends React.Component {
 						<Switch>
 							<Route path="/" exact component={Subject}></Route>
 							<Route path="/political" exact component={Subject}></Route>
-							<Route path="/history" exact component={Qibingying}></Route>
-							<Route path="/economic" exact component={Articles}></Route>
-							<Route
-								path="/communication"
-								exact
-								component={PersonalPage}
-							></Route>
+							<Route path="/history" exact component={PersonalPage}></Route>
+							{/* <Route path="/economic" exact component={}></Route> */}
+							<Route path="/communication" exact component={Articles}></Route>
 						</Switch>
 					</BrowserRouter>
 				</Content>
