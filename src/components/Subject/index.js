@@ -7,39 +7,14 @@ import axios from 'axios';
 
 const { Sider, Content, Footer } = Layout;
 const { Meta } = Card;
-// const cardList = [
-// 	{
-// 		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-// 		title: '标题1',
-// 	},
-// 	{
-// 		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-// 		title: '标题2',
-// 	},
-// 	{
-// 		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-// 		title: '标题3',
-// 	},
-// 	{
-// 		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-// 		title: '标题4',
-// 	},
-// 	{
-// 		src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-// 		title: '标题4',
-// 	},
-// ];
 
 class Subject extends React.Component {
 	constructor(props) {
-		super(props);
+		super();
 		this.state = {
 			cardList: [],
 		};
 	}
-	clickCard = () => {
-		console.log('1');
-	};
 
 	componentDidMount() {
 		axios
@@ -50,10 +25,7 @@ class Subject extends React.Component {
 				this.setState({
 					cardList: res.data.data.cardList,
 				});
-				console.log(res.data);
-				console.log(res.data.data);
 				console.log(res.data.data.cardList);
-				console.log('12' + this.state);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -86,7 +58,6 @@ class Subject extends React.Component {
 											return (
 												<Col style={{ marginBottom: 15 }} span={6}>
 													<Card
-														onClick={this.clickCard()}
 														style={{
 															width: 150,
 															marginLeft: 'auto',

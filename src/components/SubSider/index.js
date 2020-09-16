@@ -1,67 +1,27 @@
-import React, { Component } from 'react';
-import { Layout, Divider, Avatar, Col, Row, Card } from 'antd';
-import { EyeOutlined, MessageOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Layout, Divider, Avatar, Card, Col, Row } from 'antd';
 import 'antd/dist/antd.css';
 import GitHub from '../../assets/githubUrl.png';
-import './index.css';
-// import SubSider from '../SubSider';
-// import Sider from 'antd/lib/layout/Sider';
 import Jiaoliuqun from '../../assets/jiaoliuqun.png';
 
-const { Content, Sider } = Layout;
+const { Sider, Content } = Layout;
 const { Meta } = Card;
 
-class Articles extends Component {
+class SubSider extends React.Component {
+	// constructor(props) {}
+
 	render() {
 		return (
 			<div>
 				<Layout>
-					<Content
-						style={{
-							minHeight: document.documentElement.clientHeight - 64 - 70,
-							width: document.documentElement.clientWidth - 400,
-							marginTop: 64,
-							paddingTop: 30,
-							paddingRight: 100,
-							paddingLeft: 400,
-							backgroundColor: '#fff',
-						}}
-					>
-						<div>
-							<a href="http://baidu.com">
-								<img
-									className="articlePicture"
-									src={GitHub}
-									alt="文章封面"
-								></img>
-							</a>
-							<div class="content">
-								<Link to="http://baidu.com">
-									<h3>第一篇文章</h3>
-								</Link>
-								<p>这是第一篇文章的简介</p>
-							</div>
-							<div class="meta">
-								<span>
-									<EyeOutlined className="spanIcon" theme="outlined" />
-									<span>50</span>
-								</span>
-								<span>
-									<MessageOutlined className="spanIcon" theme="outlined" />
-									<span>16</span>
-								</span>
-								<span className="spanTime">2020.9.14</span>
-							</div>
-							<Divider />
-						</div>
-					</Content>
+					<Content></Content>
 					<Sider
 						width={400}
 						style={{
 							minHeight: document.documentElement.clientHeight - 64 - 70,
 							marginTop: 64,
 							backgroundColor: '#fff',
+							// marginLeft: document.documentElement.clientWidth - 400,
 						}}
 					>
 						<div>
@@ -166,11 +126,10 @@ class Articles extends Component {
 							<Divider></Divider>
 						</div>
 					</Sider>
-					{/* <Footer>123</Footer> */}
 				</Layout>
 			</div>
 		);
 	}
 }
 
-export default Articles;
+export default SubSider;

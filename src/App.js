@@ -4,6 +4,7 @@ import React from 'react';
 import Nav from './components/Nav/index';
 // import Subject from './components/Subject/index';
 // import PersonalPage from './components/PersonalPage/index';
+// import SubSider from './components/SubSider/index';
 
 // function App() {
 //   return (
@@ -26,13 +27,13 @@ import Nav from './components/Nav/index';
 //   );
 // }
 const App = () => (
-  <div className="App">
-    {/* <Nav></Nav> */}
-    {/* <PersonalPage></PersonalPage> */}
-    <Nav></Nav>
-    {/* <Subject></Subject> */}
-  </div>
+	<div className="App">
+		{/* <Nav></Nav> */}
+		{/* <PersonalPage></PersonalPage> */}
+		<Nav></Nav>
+		{/* <Subject></Subject> */}
+		{/* <SubSider></SubSider> */}
+	</div>
 );
-
 
 export default App;
