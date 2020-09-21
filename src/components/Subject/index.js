@@ -17,10 +17,12 @@ class Subject extends React.Component {
 	}
 
 	componentDidMount() {
+		const subjectBaseUrl =
+			'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/subject/';
+		const subjectName = this.props.location.state.currentObject.toString();
+		const url = subjectBaseUrl + subjectName;
 		axios
-			.get(
-				'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/subject/political'
-			)
+			.get(url)
 			.then((res) => {
 				this.setState({
 					cardList: res.data.data.cardList,

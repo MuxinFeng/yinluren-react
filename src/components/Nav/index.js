@@ -51,13 +51,24 @@ class Nav extends React.Component {
 			value: e.key,
 		};
 		store.dispatch(action);
-		const path = '/' + e.key;
-		history.push({
-			pathname: path,
-			state: {
-				currentObject: e.key,
-			},
-		});
+		// 将非subject组件特殊处理
+		if (e.key === 'communication' || e.key === 'history') {
+			const path = '/' + e.key;
+			history.push({
+				pathname: path,
+				state: {
+					currentObject: e.key,
+				},
+			});
+		} else {
+			const path = '/subject/' + e.key;
+			history.push({
+				pathname: path,
+				state: {
+					currentObject: e.key,
+				},
+			});
+		}
 	};
 
 	render() {
@@ -199,9 +210,16 @@ class Nav extends React.Component {
 					<BrowserRouter>
 						<Switch>
 							<Route path="/" exact component={Subject}></Route>
-							<Route path="/political" exact component={Subject}></Route>
+							{/* 这种形式可以传入属性 */}
+							<Route
+								path="/subject/:id"
+								exact
+								render={(props) => {
+									return <Subject {...props} />;
+								}}
+							></Route>
+							{/* <Route path="/subject/:id" exact component={Subject}></Route> */}
 							<Route path="/history" exact component={PersonalPage}></Route>
-							{/* <Route path="/economic" exact component={}></Route> */}
 							<Route path="/communication" exact component={Articles}></Route>
 						</Switch>
 					</BrowserRouter>
