@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 import GitHub from '../../assets/githubUrl.png';
 import Jiaoliuqun from '../../assets/jiaoliuqun.png';
 import axios from 'axios';
+// import store from '../../store/index';
 
 const { Sider, Content, Footer } = Layout;
 const { Meta } = Card;
@@ -11,23 +12,32 @@ const { Meta } = Card;
 class Subject extends React.Component {
 	constructor(props) {
 		super();
+		// this.state = store.getState();
 		this.state = {
 			cardList: [],
+			current: 'political',
 		};
 	}
 
 	componentDidMount() {
+		// console.log(this.state);
 		const subjectBaseUrl =
 			'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/subject/';
-		const subjectName = this.props.location.state.currentObject.toString();
+		const subjectName = this.state.current;
 		const url = subjectBaseUrl + subjectName;
 		axios
 			.get(url)
+			// .get(
+			// 	'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/subject/political'
+			// )
 			.then((res) => {
 				this.setState({
 					cardList: res.data.data.cardList,
+					current: this.props.history.location.state.currentObject,
 				});
-				console.log(res.data.data.cardList);
+				console.log(res.data.data);
+				console.log(this.props.history.location.state.currentObject);
+				console.log(this.state.current);
 			})
 			.catch((error) => {
 				console.log(error);

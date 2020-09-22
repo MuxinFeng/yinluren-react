@@ -8,11 +8,43 @@ import './index.css';
 // import SubSider from '../SubSider';
 // import Sider from 'antd/lib/layout/Sider';
 import Jiaoliuqun from '../../assets/jiaoliuqun.png';
+import axios from 'axios';
 
 const { Content, Sider } = Layout;
 const { Meta } = Card;
 
 class Articles extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			current: 'communication',
+			articlsList: [],
+		};
+	}
+	componentDidMount() {
+		// console.log(this.state);
+		const subjectBaseUrl =
+			'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/';
+		const subjectName = this.state.current;
+		const url = subjectBaseUrl + subjectName;
+		axios
+			.get(url)
+			// .get(
+			// 	'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/subject/political'
+			// )
+			.then((res) => {
+				this.setState({
+					articleList: res.data.data.articleList,
+					current: this.props.history.location.state.currentObject,
+				});
+				console.log(res.data.data.articleList);
+				console.log(this.props.history.location.state.currentObject);
+				console.log(this.state.current);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
 	render() {
 		return (
 			<div>
@@ -29,31 +61,67 @@ class Articles extends Component {
 						}}
 					>
 						<div>
-							<a href="http://baidu.com">
-								<img
-									className="articlePicture"
-									src={GitHub}
-									alt="文章封面"
-								></img>
-							</a>
-							<div class="content">
-								<Link to="http://baidu.com">
-									<h3>第一篇文章</h3>
-								</Link>
-								<p>这是第一篇文章的简介</p>
+							{(this.state.articleList || []).map((item, index) => {
+								return (
+									<div>
+										<a href="http://baidu.com">
+											<img
+												className="articlePicture"
+												src={item.src}
+												alt="文章封面"
+											></img>
+										</a>
+										<div class="content">
+											<Link to="http://baidu.com">
+												<h3>{item.title}</h3>
+											</Link>
+											<p>{item.introduction}</p>
+										</div>
+										<div class="meta">
+											<span>
+												<EyeOutlined className="spanIcon" theme="outlined" />
+												<span>{item.views}</span>
+											</span>
+											<span>
+												<MessageOutlined
+													className="spanIcon"
+													theme="outlined"
+												/>
+												<span>{item.likes}</span>
+											</span>
+											<span className="spanTime">{item.time}</span>
+										</div>
+										<Divider />
+									</div>
+								);
+							})}
+							<div>
+								<a href="http://baidu.com">
+									<img
+										className="articlePicture"
+										src={GitHub}
+										alt="文章封面"
+									></img>
+								</a>
+								<div class="content">
+									<Link to="http://baidu.com">
+										<h3>第一篇文章</h3>
+									</Link>
+									<p>这是第一篇文章的简介</p>
+								</div>
+								<div class="meta">
+									<span>
+										<EyeOutlined className="spanIcon" theme="outlined" />
+										<span>50</span>
+									</span>
+									<span>
+										<MessageOutlined className="spanIcon" theme="outlined" />
+										<span>16</span>
+									</span>
+									<span className="spanTime">2020.9.14</span>
+								</div>
+								<Divider />
 							</div>
-							<div class="meta">
-								<span>
-									<EyeOutlined className="spanIcon" theme="outlined" />
-									<span>50</span>
-								</span>
-								<span>
-									<MessageOutlined className="spanIcon" theme="outlined" />
-									<span>16</span>
-								</span>
-								<span className="spanTime">2020.9.14</span>
-							</div>
-							<Divider />
 						</div>
 					</Content>
 					<Sider
