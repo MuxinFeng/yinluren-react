@@ -44,6 +44,10 @@ class Subject extends React.Component {
 			});
 	}
 
+	clickCard = (characterId) => {
+		const a = '2';
+		console.log(a + characterId);
+	};
 	render() {
 		return (
 			<div>
@@ -77,8 +81,12 @@ class Subject extends React.Component {
 														}}
 														hoverable
 														cover={<img alt="图片未显示" src={item.src} />}
+														onClick={() => this.clickCard(item.characterId)}
 													>
-														<Meta title={item.title} />
+														<Meta
+															title={item.title}
+															style={{ textAlign: 'center' }}
+														/>
 													</Card>
 												</Col>
 											);

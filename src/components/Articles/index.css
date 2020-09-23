@@ -23,9 +23,14 @@ p {
 } */
 
 span {
-	padding-right: 15px;
+	margin-right: 15px;
 }
 
 .spanTime {
 	margin-left: 40px;
+}
+
+.iconType {
+	widows: 80px;
+	display: inline-block;
 }

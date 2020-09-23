@@ -67,61 +67,35 @@ class Articles extends Component {
 										<a href="http://baidu.com">
 											<img
 												className="articlePicture"
-												src={item.src}
+												// src={item.img}
+												src={GitHub}
 												alt="文章封面"
 											></img>
 										</a>
 										<div class="content">
-											<Link to="http://baidu.com">
+											<Link to="http://baidu.com" target="_blank">
 												<h3>{item.title}</h3>
 											</Link>
 											<p>{item.introduction}</p>
 										</div>
-										<div class="meta">
-											<span>
+										<div>
+											<div className="iconType">
 												<EyeOutlined className="spanIcon" theme="outlined" />
 												<span>{item.views}</span>
-											</span>
-											<span>
+											</div>
+											<div className="iconType">
 												<MessageOutlined
 													className="spanIcon"
 													theme="outlined"
 												/>
 												<span>{item.likes}</span>
-											</span>
+											</div>
 											<span className="spanTime">{item.time}</span>
 										</div>
 										<Divider />
 									</div>
 								);
 							})}
-							<div>
-								<a href="http://baidu.com">
-									<img
-										className="articlePicture"
-										src={GitHub}
-										alt="文章封面"
-									></img>
-								</a>
-								<div class="content">
-									<Link to="http://baidu.com">
-										<h3>第一篇文章</h3>
-									</Link>
-									<p>这是第一篇文章的简介</p>
-								</div>
-								<div class="meta">
-									<span>
-										<EyeOutlined className="spanIcon" theme="outlined" />
-										<span>50</span>
-									</span>
-									<span>
-										<MessageOutlined className="spanIcon" theme="outlined" />
-										<span>16</span>
-									</span>
-									<span className="spanTime">2020.9.14</span>
-								</div>
-								<Divider />
-							</div>
 						</div>
 					</Content>
 					<Sider
