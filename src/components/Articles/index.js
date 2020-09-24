@@ -76,7 +76,7 @@ class Articles extends Component {
 											<Link to="http://baidu.com" target="_blank">
 												<h3>{item.title}</h3>
 											</Link>
-											<p>{item.introduction}</p>
+											<p className="p">{item.introduction}</p>
 										</div>
 										<div>
 											<div className="iconType">

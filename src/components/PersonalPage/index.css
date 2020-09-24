@@ -1,24 +1,23 @@
- .portrait{    
-    width: 165px;
-    height: 210px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    position:relative;
- }
-.intruction{
-    /* font-size: 14px; */
-    word-wrap: break-word;
-    margin-bottom: 15px;
-    text-indent: 2em;
-    line-height: 24px;
-    text-align: left;
-    zoom: 1;
-    padding: 20px 35px;
+.portrait {
+	width: 165px;
+	height: 210px;
+	display: flex;
+	margin: 0 auto;
 }
-.toc{
-    margin: 16px 0;
-    padding-left: 0;
-    font-size: 12px;
-    list-style: none;
-    border-left: 1px solid #f0f0f0;
+.intruction {
+	/* font-size: 14px; */
+	word-wrap: break-word;
+	/* margin-bottom: 15px; */
+	text-indent: 2em;
+	line-height: 24px;
+	text-align: left;
+	zoom: 1;
+	padding: 20px 35px;
+}
+.toc {
+	margin: 16px 0;
+	padding-left: 0;
+	font-size: 12px;
+	list-style: none;
+	border-left: 1px solid #f0f0f0;
 }

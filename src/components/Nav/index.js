@@ -218,7 +218,6 @@ class Nav extends React.Component {
 									return <Subject {...props} />;
 								}}
 							></Route>
-							{/* <Route path="/subject/:id" exact component={Subject}></Route> */}
 							<Route path="/history" exact component={PersonalPage}></Route>
 							<Route path="/communication" exact component={Articles}></Route>
 						</Switch>
