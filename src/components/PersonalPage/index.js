@@ -2,13 +2,11 @@ import './index.css';
 import React from 'react';
 import { Layout, Card, Col, Row, Divider, Anchor, Avatar } from 'antd';
 import 'antd/dist/antd.css';
-// import Nav from "../Nav/index";
 import {
 	PlayCircleOutlined,
 	VerticalAlignBottomOutlined,
 } from '@ant-design/icons';
-import GitHub from '../../assets/githubUrl.png';
-// import Jiaoliuqun from '../../assets/jiaoliuqun.png';
+import axios from 'axios';
 
 const { Sider, Content, Footer } = Layout;
 const { Meta } = Card;
@@ -18,34 +16,74 @@ class PersonalPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			characterPicture: GitHub,
-			characterIntoduction:
-				'温铁军，汉族，祖籍河北昌黎，1951年5月出生于北京，三农问题专家。中国人民大学二级岗位教授，中国人民大学农业与农村发展学院院长，乡村建设中心、可持续发展高等研究院、农村金融研究所等校属科研机构负责人，校学术委员会副主任，中国人民大学国家发展与战略研究院研究员；西南大学中国乡村建设学院执行院长；福建农林大学新农村发展研究院、海峡乡村建设学院执行院长；北京大学习近平新时代中国特色社会主义思想研究院乡村振兴中心主任；浙江财经大学中国乡村振兴研究院名誉院长；复旦大学社会科学高等研究院当代中国研究中心特聘研究员；中国邮政储蓄银行独立非执行董事。',
-			characterIntoductionByAuthor:
-				'温铁军，汉族，祖籍河北昌黎，1951年5月出生于北京，三农问题专家。中国人民大学二级岗位教授，中国人民大学农业与农村发展学院院长，乡村建设中心、可持续发展高等研究院、农村金融研究所等校属科研机构负责人，校学术委员会副主任，中国人民大学国家发展与战略研究院研究员；西南大学中国乡村建设学院执行院长；福建农林大学新农村发展研究院、海峡乡村建设学院执行院长；北京大学习近平新时代中国特色社会主义思想研究院乡村振兴中心主任；浙江财经大学中国乡村振兴研究院名誉院长；复旦大学社会科学高等研究院当代中国研究中心特聘研究员；中国邮政储蓄银行独立非执行董事。',
-			videoList: [
-				{
-					videoId: '',
-					title: '2018年复旦人文讲堂红楼梦专题',
-					videoCover: GitHub,
-					videoAvatar:
-						'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-				},
-			],
-			bookList: [
-				{
-					bookId: '',
-					title: '八次危机',
-					bookCover:
-						'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-				},
-			],
+			characterPicture: '',
+			characterIntoduction: '',
+			characterIntoductionByAuthor: '',
+			videoList: [],
+			bookList: [],
+			watchUrlList: [],
+			downloadUrlList: [],
 		};
 	}
+	componentDidMount() {
+		// const subjectBaseUrl =
+		// 	'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/subject/';
+		// const subjectName = this.state.current;
+		// const url = subjectBaseUrl + subjectName;
+		const url =
+			'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/personalPage';
+		axios
+			.get(url)
+			.then((res) => {
+				this.setState({
+					characterPicture: res.data.data.characterPicture,
+					characterIntoduction: res.data.data.characterIntoduction,
+					characterIntoductionByAuthor:
+						res.data.data.characterIntoductionByAuthor,
+					videoList: res.data.data.videoList,
+					bookList: res.data.data.bookList,
+				});
+				console.log(res.data.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
+
+	watchVideo = (e) => {
+		console.log(e);
+		const videoBaseUrl =
+			'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/video/';
+		const videoId = e;
+		const url = videoBaseUrl + videoId;
+		axios.get(url).then((res) => {
+			this.setState({
+				watchUrlList: res.data.data.watchUrlList,
+			});
+			console.log(res.data.data);
+			console.log(this.state.watchUrlList);
+		});
+	};
+
+	downloadVideo = (e) => {
+		console.log(e);
+		console.log(e);
+		const videoBaseUrl =
+			'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/video/';
+		const videoId = e;
+		const url = videoBaseUrl + videoId;
+		axios.get(url).then((res) => {
+			this.setState({
+				downloadUrlList: res.data.data.dowanloadUrlList,
+			});
+			console.log(res.data.data);
+			console.log(this.state.downloadUrlList);
+		});
+	};
+
 	render() {
 		return (
 			<div>
-				{/* <Nav></Nav> */}
 				<Layout>
 					<Content>
 						<Layout>
@@ -114,14 +152,20 @@ class PersonalPage extends React.Component {
 																<img alt="图片未显示" src={item.videoCover} />
 															}
 															actions={[
-																<PlayCircleOutlined key="view" />,
-																<VerticalAlignBottomOutlined key="download" />,
+																<PlayCircleOutlined
+																	key={item.videoId}
+																	onClick={() => this.watchVideo(item.videoId)}
+																/>,
+																<VerticalAlignBottomOutlined
+																	key={item.videoId}
+																	onClick={() =>
+																		this.downloadVideo(item.videoId)
+																	}
+																/>,
 															]}
 														>
 															<Meta
-																// style={{ height: '84px' }}
 																avatar={<Avatar src={item.videoAvatar} />}
-																// description="2018年岳阳红楼梦讲读全集2018讲读全集"
 																description={item.title}
 															/>
 														</Card>
