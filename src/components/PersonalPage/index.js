@@ -56,13 +56,24 @@ class PersonalPage extends React.Component {
 			'https://www.easy-mock.com/mock/5f60c57aed072c1818dd712f/yinlurendb/video/';
 		const videoId = e;
 		const url = videoBaseUrl + videoId;
-		axios.get(url).then((res) => {
-			this.setState({
-				watchUrlList: res.data.data.watchUrlList,
+		axios
+			.get(url)
+			.then((res) => {
+				this.setState({
+					watchUrlList: res.data.data.watchUrlList,
+				});
+				// console.log(res.data.data);
+				// console.log(this.state.watchUrlList);
+			})
+			.then((res) => {
+				const url1 = this.state.watchUrlList[0].url1;
+				// console.log(url1 + '2');
+				window.open(url1);
+			})
+			.catch(function (error) {
+				console.log(error + 'error');
+				// 处理前两个回调函数的错误
 			});
-			console.log(res.data.data);
-			console.log(this.state.watchUrlList);
-		});
 	};
 
 	downloadVideo = (e) => {
